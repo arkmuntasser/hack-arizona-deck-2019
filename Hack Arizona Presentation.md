@@ -8,10 +8,14 @@ I wanted to know the common challenges my devs encountered when building a site.
 
 First, let me establish the goals for any component in our library.
 
-1. It had to be usable on any of our sites.
-2. It had to be accessible.
-3. It had to improve code quality.
-4. It had to be super dramatically simpler for our devs to use.
+1. Tightly integrated with our CMS.
+2. Provide a better experience for our developers.
+3. Improve code quality and accessibility on our sites.
+4. Give us a SaaS front end to match our SaaS back end.
+
+## Tightly integrated with our CMS
+
+## Provide a better experience for our developers & Improve code quality and accessibility on our sites
 
 With that in mind let’s take a look at the first component: the link.
 
@@ -108,13 +112,13 @@ export default {
 	mounted() {
 		const io = new InstersectionObserver((entries, i) => {
 			const entry = entries[0];
-			
+
 			if (entry.intersectionRatio > 0) {
 				this.enteredViewport = true;
 				io.disconnect();
 			}
 		});
-		
+
 		io.observe(this.$el);
 	}
 }
@@ -179,6 +183,8 @@ Here resource is something our CMS provides us that contains all the data about 
 Does this meet all the items on our checklist? You bet it does!
 
 Components can be a practical solution for a number of everyday developer pains; if you work in a team, talk to your team members, find out what they think sucks. Look at the code base you’re working in, do any opportunities present themselves?
+
+## Give us a SaaS front end to match our SaaS back end
 
 I’m Amir, you can follow me on Twitter, I’m @arkmuntasser. If you have any questions, comments, or just want to say hi, I’ll be hanging around for while so feel free to to come up to me if you see me. And if you really liked what I had to say here today, then check out Simpleview’s careers page; we’re looking to hire a bunch of developers.
 
