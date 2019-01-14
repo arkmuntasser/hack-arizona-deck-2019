@@ -1,6 +1,7 @@
 import { Head } from 'mdx-deck'
+import { CodeSurfer } from "mdx-deck-code-surfer"
 
-export { default as theme } from './theme'
+export { swiss as theme } from 'mdx-deck/themes'
 
 <Head>
   <title>Building a Scalable Component Library</title>
@@ -49,6 +50,76 @@ Goals for our Component Library
 Tightly integrateed with our CMS.
 
 Our CMS is a closed-source proprietary product.
+
+---
+
+Code examples are NOT production ready.
+
+---
+
+# Links
+
+---
+
+<CodeSurfer
+  title="Links are easy!"
+  code={require("!raw-loader!./snippets/link-example-basic.html")}
+  lang="html"
+  showNumbers={false}
+  dark={false}
+/>
+
+---
+
+But it's missing attributes like:
+
+<ul>
+  <Appear>
+    <li>target</li>
+    <li>rel</li>
+    <li>title</li>
+  </Appear>
+</ul>
+
+---
+
+Components can and should be used to enforce best practices/accessibility.
+
+---
+
+<CodeSurfer
+  title="hyperlink component"
+  code={require("!raw-loader!./snippets/hyperlink.vue")}
+  lang="html"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    {},
+    { range: [15, 18], notes: "A prop to pass through our link object from the CMS" },
+    { range: [20, 33], notes: "Some computed properties to get our attribute values" },
+    { range: [2, 9], notes: "We render a simple anchor with all attributes in place" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Instead of writing this..."
+  code={require("!raw-loader!./snippets/link-example-bad.html")}
+  lang="html"
+  showNumbers={false}
+  dark={false}
+/>
+
+---
+
+<CodeSurfer
+  title="Devs can write this..."
+  code={require("!raw-loader!./snippets/link-example-good.html")}
+  lang="html"
+  showNumbers={false}
+  dark={false}
+/>
 
 ---
 
