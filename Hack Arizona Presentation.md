@@ -182,9 +182,11 @@ Here resource is something our CMS provides us that contains all the data about 
 
 Does this meet all the items on our checklist? You bet it does!
 
-Components can be a practical solution for a number of everyday developer pains; if you work in a team, talk to your team members, find out what they think sucks. Look at the code base you’re working in, do any opportunities present themselves?
-
 ## Give us a SaaS front end to match our SaaS back end
+
+So now we have these great foundational components that we can use to build larger more complex components all the way up to widgets and apps.
+
+## Closing
 
 I’m Amir, you can follow me on Twitter, I’m @arkmuntasser. If you have any questions, comments, or just want to say hi, I’ll be hanging around for while so feel free to to come up to me if you see me. And if you really liked what I had to say here today, then check out Simpleview’s careers page; we’re looking to hire a bunch of developers.
 
