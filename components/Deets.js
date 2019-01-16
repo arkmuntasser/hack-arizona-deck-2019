@@ -32,16 +32,17 @@ export default ({ children }) => (
         </div>
 
         <div
-            style={{
-                display: 'flex',
-                alignItems: 'center'
-            }}
+            style={{display: 'flex',alignItems: 'center'}}
         >
-            <img src='./assets/logo-twitter.png' width="36" />&nbsp;@arkmuntasser
-            &nbsp;&nbsp;
-            <img src='./assets/logo-github.png' width="36" />&nbsp;@arkmuntasser
-            &nbsp;&nbsp;
-            <img src='./assets/logo-website.jpg' width="36" />&nbsp;arkm.xyz
+            <a style={{textDecoration: 'none', color: '#EC407A', marginRight: '24px',display: 'flex',alignItems: 'center'}} href="https://twitter.com/arkmuntasser" target="_blank">
+                <img src='./assets/logo-twitter.png' width="36" />&nbsp;@arkmuntasser
+            </a>
+            <a style={{textDecoration: 'none', color: '#EC407A',marginRight: '24px',display: 'flex',alignItems: 'center'}} href="https://github.com/arkmuntasser" target="_blank">
+                <img src='./assets/logo-github.png' width="36" />&nbsp;@arkmuntasser
+            </a>
+            <a style={{textDecoration: 'none', color: '#EC407A',marginRight: '24px',display: 'flex',alignItems: 'center'}} href="https://arkm.xyz" target="_blank">
+                <img src='./assets/logo-website.jpg' width="36" />&nbsp;arkm.xyz
+            </a>
         </div>
     </div>
 )

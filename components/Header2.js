@@ -7,7 +7,7 @@ export default ({ children }) => (
             fontSize: '64px',
             fontWeight: '700'
         }}
-        >
+    >
         <div
             style={{
                 position: 'absolute',
