@@ -21,7 +21,7 @@ With that in mind let’s take a look at the first component: the link.
 You might think, Amir, links are easy here, look:
 
 ```html
-	<a href="https://simpleviewinc.com">go there</a>
+<a href="https://simpleviewinc.com">go there</a>
 ```
 
 And you would be right… mostly. But sometimes your link needs a `target` and a `rel` and it pretty much always needs a `title`. Those were things that we would often catch mostly newer devs leaving out during code review. This was a perfect low-effort/high-impact opportunity for a component. Our fantastic and very proprietary CMS provides all the data we needed to properly fill those attributes in a handy JSON object called `link`, so I built a component that looks similar to this:
@@ -68,14 +68,14 @@ export default {
 And that means our devs went from having to write this:
 
 ```html
-	<a
-		:href="link.url"
-		:target="link.target"
-		:rel="link.target === '_blank' ? 'noopener' : ''"
-		:title="link.title"
-	>
-		click here
-	</a>
+<a
+	:href="link.url"
+	:target="link.target"
+	:rel="link.target === '_blank' ? 'noopener' : ''"
+	:title="link.title"
+>
+	click here
+</a>
 ```
 
 to this:
@@ -163,18 +163,18 @@ export default {
 As you can see, we simply iterate over an array of sizes and generate a list of sources for our picture element. And now instead of the developer needing to write their own lazy loader and look up how to use `<picture>`, which I’ll admit I need to hit up MDN every time I intend to use it, they can simply write something like this:
 
 ```html
-	<hyperimage
-		:resource="resource"
-		:sizes="{
-			default: { width: …, height: … },
-			srcset: {
-				1440:  { width: …, height: … },
-				1024:  { width: …, height: … },
-				768:  { width: …, height: … },
-				480:  { width: …, height: … },
-			}
-		}"
-	></hyperimage>
+<hyperimage
+	:resource="resource"
+	:sizes="{
+		default: { width: …, height: … },
+		srcset: {
+			1440:  { width: …, height: … },
+			1024:  { width: …, height: … },
+			768:  { width: …, height: … },
+			480:  { width: …, height: … },
+		}
+	}"
+></hyperimage>
 ```
 
 Here resource is something our CMS provides us that contains all the data about an image as well as a number of helpful functions to apply transforms via our CDN, Cloudinary.
