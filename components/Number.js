@@ -1,11 +1,12 @@
 import React from 'react'
 
 export default ({ children }) => (
-    <div
+    <span
         style={{
+            display: 'block',
             fontSize: '136px',
             fontWeight: '700',
             textAlign: 'center'
         }}
-    >{children}</div>
+    >{children}</span>
 )

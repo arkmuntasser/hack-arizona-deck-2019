@@ -1,9 +1,10 @@
 import React from 'react'
 
 export default ({ children }) => (
-    <div>
-        <div
+    <span>
+        <span
             style={{
+                display: 'block',
                 position: 'relative',
                 fontSize: '54px',
                 fontWeight: '700',
@@ -11,27 +12,29 @@ export default ({ children }) => (
                 paddingLeft: '32px'
             }}
         >
-            <div
+            <span
                 style={{
+                    display: 'block',
                     position: 'absolute',
                     left: '0',
                     width: '12px',
                     height: '100%',
                     backgroundColor: '#F50057'
                 }}
-            ></div>
+            ></span>
             Amir R Muntasser
-            <div
+            <span
                 style={{
+                    display: 'block',
                     fontSize: '32px',
                     color: '#666'
                 }}
             >
                 Senior Developer Lead of CMS Operations
-            </div>
-        </div>
+            </span>
+        </span>
 
-        <div
+        <span
             style={{display: 'flex',alignItems: 'center'}}
         >
             <a style={{textDecoration: 'none', color: '#EC407A', marginRight: '24px',display: 'flex',alignItems: 'center'}} href="https://twitter.com/arkmuntasser" target="_blank">
@@ -43,6 +46,6 @@ export default ({ children }) => (
             <a style={{textDecoration: 'none', color: '#EC407A',marginRight: '24px',display: 'flex',alignItems: 'center'}} href="https://arkm.xyz" target="_blank">
                 <img src='./assets/logo-website.jpg' width="36" />&nbsp;arkm.xyz
             </a>
-        </div>
-    </div>
+        </span>
+    </span>
 )

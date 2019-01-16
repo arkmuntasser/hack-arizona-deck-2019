@@ -1,27 +1,30 @@
 import React from 'react'
 
 export default ({ children }) => (
-    <div
+    <span
         style={{
+            display: 'block',
             position: 'relative',
             fontSize: '96px',
             fontWeight: '700'
         }}
         >
-        <div
+        <span
             style={{
+                display: 'block',
                 backgroundColor: '#F50057',
                 marginBottom: '32px',
                 width: '2em',
                 height: '14px'
             }}
-        ></div>
-        <div
+        ></span>
+        <span
             style={{
+                display: 'block',
                 position: 'relative'
             }}
         >
             {children}
-        </div>
-    </div>
+        </span>
+    </span>
 )
