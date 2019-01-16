@@ -1,4 +1,5 @@
 import { Head } from 'mdx-deck'
+import { Image } from 'mdx-deck'
 import { CodeSurfer } from "mdx-deck-code-surfer"
 
 export { swiss as theme } from 'mdx-deck/themes'
@@ -7,7 +8,9 @@ export { swiss as theme } from 'mdx-deck/themes'
   <title>Building a Scalable Component Library</title>
 </Head>
 
-# Building a Scalable Component Library
+import Header1 from './components/Header1'
+
+<Header1>Building a Scalable Component Library</Header1>
 
 ---
 
@@ -15,13 +18,15 @@ SaaSy Components
 
 ---
 
-Simpleview
-We build websites
+<img src='./assets/logo-simpleview.svg' width="400" />
+<p>We build websites... like a lot of websites</p>
 
 ---
 
-54
-websites built and launched in 2018
+import Number from './components/Number'
+
+<Number>54</Number>
+<small>websites built and launched in 2018</small>
 
 ---
 
@@ -29,10 +34,9 @@ Simpleview Component Library
 
 ---
 
-Amir R Muntasser
-Senior Developer Lead of CMS Operations
+import Deets from './components/Deets'
 
-twitter: @arkmuntasser github: @arkmuntasser website: arkm.xyz
+<Deets></Deets>
 
 ---
 
@@ -45,17 +49,18 @@ Goals for our Component Library
     <li>Tightly integrated with our CMS.</li>
     <li>Provide a better experience for our developers.</li>
     <li>Improve code quality and accessibility on our sites.</li>
-    <li>Give us a SaaS front end to match our SaaS back end.</li>
   </Appear>
 </ul>
 
 ---
 
-## Writing Better Code Made Easy
+import Header2 from './components/Header2'
+
+<Header2>Writing Better Code Made Easy</Header2>
 
 ---
 
-Code examples are NOT production ready.
+*Code examples are **NOT** production ready.*
 
 ---
 
@@ -63,12 +68,16 @@ Code examples are NOT production ready.
 
 ---
 
+import { Invert } from 'mdx-deck/layouts'
+
+export default Invert
+
 <CodeSurfer
   title="Links are easy!"
   code={require("!raw-loader!./snippets/link-example-basic.html")}
   lang="html"
   showNumbers={false}
-  dark={false}
+  dark={true}
 />
 
 ---
@@ -89,12 +98,14 @@ Components can and should be used to enforce best practices/accessibility.
 
 ---
 
+export default Invert
+
 <CodeSurfer
   title="hyperlink component"
   code={require("!raw-loader!./snippets/hyperlink.vue")}
   lang="html"
   showNumbers={false}
-  dark={false}
+  dark={true}
   steps={[
     {},
     { range: [15, 18], notes: "A prop to pass through our link object from the CMS" },
@@ -105,22 +116,26 @@ Components can and should be used to enforce best practices/accessibility.
 
 ---
 
+export default Invert
+
 <CodeSurfer
   title="Instead of writing this..."
   code={require("!raw-loader!./snippets/link-example-bad.html")}
   lang="html"
   showNumbers={false}
-  dark={false}
+  dark={true}
 />
 
 ---
+
+export default Invert
 
 <CodeSurfer
   title="Devs can write this..."
   code={require("!raw-loader!./snippets/link-example-good.html")}
   lang="html"
   showNumbers={false}
-  dark={false}
+  dark={true}
 />
 
 ---
@@ -128,6 +143,8 @@ Components can and should be used to enforce best practices/accessibility.
 ### Images
 
 ---
+
+Issues:
 
 <ul>
   <Appear>
@@ -142,15 +159,17 @@ Components can and should be used to enforce best practices/accessibility.
 
 ---
 
+export default Invert
+
 <CodeSurfer
   title="hyperimage component"
   code={require("!raw-loader!./snippets/hyperimage-lazy-loading.vue")}
   lang="html"
   showNumbers={false}
-  dark={false}
+  dark={true}
   steps={[
     {},
-    { range: [13, 14], notes: "On mounted, we setup an Intersection Observer" },
+    { range: [13, 24], notes: "On mounted, we setup an Intersection Observer" },
     { range: [17, 20], notes: "If the element is in the viewport, we flip the enteredViewport flag to true." },
     { lines: [2], notes: "When enteredViewport is true, we render the image." }
   ]}
@@ -162,12 +181,14 @@ Components can and should be used to enforce best practices/accessibility.
 
 ---
 
+export default Invert
+
 <CodeSurfer
   title="hyperimage component"
   code={require("!raw-loader!./snippets/hyperimage-responsive.vue")}
   lang="html"
   showNumbers={false}
-  dark={false}
+  dark={true}
   steps={[
     {},
     { range: [3, 6], notes: "We iterate over an array of sizes and set the sources" },
@@ -177,12 +198,14 @@ Components can and should be used to enforce best practices/accessibility.
 
 ---
 
+export default Invert
+
 <CodeSurfer
   title="Devs now write this..."
   code={require("!raw-loader!./snippets/image-example-good.html")}
   lang="html"
   showNumbers={false}
-  dark={false}
+  dark={true}
 />
 
 ---
@@ -195,12 +218,29 @@ But now what?
 
 ---
 
-## A Saas Frontend to match our SaaS Backend
+<Header2>A Saas Frontend to match our SaaS Backend</Header2>
 
 ---
 
-### Simpleview CMS
-It's a SaaS (Software as a Service) platform!
+import { Split } from 'mdx-deck/layouts'
+
+export default Split
+
+<div
+  style={{
+    padding: '12rem'
+  }}
+>
+  <h3>Simpleview CMS</h3>
+  It's a SaaS (Software as a Service) platform!
+</div>
+<img
+  style={{
+    display: 'block',
+    width: '100%'
+  }}
+  src='./assets/screenshot-cms.png'
+/>
 
 ---
 
@@ -220,19 +260,19 @@ Every client got it instantly and it was a totally smooth release...
 
 ---
 
-It required a very minor single line update to enable on the frontend
+It required a very minor **single line update** to enable on the frontend
 
 ---
 
 <Appear>
-  <span>1 Line...&nbsp;</span>
-  <span>per Widget...&nbsp;</span>
-  <span>per Client...</span>
+  <span>1 line...&nbsp;</span>
+  <span>per widget...&nbsp;</span>
+  <span>per client...</span>
 </Appear>
 
 ---
 
-Roughly a dozen widget per sites...
+Roughly a dozen widgets per sites...
 
 ---
 
@@ -244,11 +284,11 @@ Never again!
 
 ---
 
-The hymperimage component to the rescue!
+The hyperimage component to the rescue!
 
 ---
 
-Components in our library live outside of the client's codebase and will get pushed to their sites.
+Components in our library live outside of the client site's individual codebase and gets pushed to their sites.
 
 ---
 
@@ -272,6 +312,6 @@ A component library at scale.
 
 ---
 
-## Thank you!
+<Header2>Thank you!</Header2>
 
 Follow me: @arkmuntasser on Twitter and other internet places
