@@ -11,11 +11,10 @@ First, let me establish the goals for any component in our library.
 1. Tightly integrated with our CMS.
 2. Provide a better experience for our developers.
 3. Improve code quality and accessibility on our sites.
-4. Give us a SaaS front end to match our SaaS back end.
 
-## Tightly integrated with our CMS
+Relatively simple goals. Tight integration with our CMS, because there was no reason to make them generic since they aren't intended for use outside of our system. Provide a better experience for devs; part of the impetous for creating the component library was to remove pain points and frustrations, if a component doesn't achieve this then it fundamentally is a failure. And improve code quality because if I'm going to take the time to do this, then I ought to do it right.
 
-## Provide a better experience for our developers & Improve code quality and accessibility on our sites
+## Writing Better Code Made Easy
 
 With that in mind let’s take a look at the first component: the link.
 
@@ -27,7 +26,7 @@ You might think, Amir, links are easy here, look:
 
 And you would be right… mostly. But sometimes your link needs a `target` and a `rel` and it pretty much always needs a `title`. Those were things that we would often catch mostly newer devs leaving out during code review. This was a perfect low-effort/high-impact opportunity for a component. Our fantastic and very proprietary CMS provides all the data we needed to properly fill those attributes in a handy JSON object called `link`, so I built a component that looks similar to this:
 
-```vue
+```html
 <template>
     <a
         v-if="href"
@@ -68,7 +67,7 @@ export default {
 
 And that means our devs went from having to write this:
 
-```vue
+```html
 	<a
 		:href="link.url"
 		:target="link.target"
@@ -81,7 +80,7 @@ And that means our devs went from having to write this:
 
 to this:
 
-```vue
+```html
 	<hyperlink :link="link">click here</hyperlink>
 ```
 
@@ -96,7 +95,7 @@ Let’s start with the opportunities I found with our images:
 
 Lazy loading is pretty simple, it looks something like this:
 
-```vue
+```html
 <template>
 	<img v-if="enteredViewport" :src="…" :alt="…" />
 	<div v-else class="spacer">
@@ -129,7 +128,7 @@ Using an Intersection Observer I can quickly find out when my image crosses into
 
 Supporting responsive images was a bit more complicated.
 
-```vue
+```html
 <picture v-if="enteredViewport">
 	<source v-for="size in sourceSizes"
 		:srcset="getImageSrc(size)"
@@ -163,7 +162,7 @@ export default {
 
 As you can see, we simply iterate over an array of sizes and generate a list of sources for our picture element. And now instead of the developer needing to write their own lazy loader and look up how to use `<picture>`, which I’ll admit I need to hit up MDN every time I intend to use it, they can simply write something like this:
 
-```vue
+```html
 	<hyperimage
 		:resource="resource"
 		:sizes="{
@@ -182,9 +181,21 @@ Here resource is something our CMS provides us that contains all the data about 
 
 Does this meet all the items on our checklist? You bet it does!
 
-## Give us a SaaS front end to match our SaaS back end
+## A SaaS front end to match our SaaS back end
 
-So now we have these great foundational components that we can use to build larger more complex components all the way up to widgets and apps.
+So now we have these great foundational components that we can use to build larger more complex components all the way up to widgets and apps. And that's when things get really exciting!
+
+As I've mentioned, at Simpleview we have our own CMS; we licence it to our clients as a SaaS product. That's Software as a Service for those not hip to the lingo. What that means is that our CMS gets continuosly updated with new features and our client's don't need to install anything, dowload anything, request anything, they just get a more stable and powerful CMS on a regular basis. That's incredibly powerful as company that not only creates a platform, but is also the primary user of the platform. We don't build sites on anything other than our CMS. And that presented a unique problem.
+
+Our Product team could build a feature and push it out to every client, the client could immediatly begin using it, but depending on the feature, the front end of their site, might not be able to use the feature without an update. And I mean an update to every client that could want to use the new feature.
+
+For example, we released a new feature called *focal point* that enabled a user to select the focus of an image so that when we cropped the image, it would always crop around the focal point. Simple enough. Client could immediately go into their asset libraries and start setting focal points on all their images, but their websites couldn't actually make use of the focal point without a minor single line update per image per widget per client. That's 100s of clients with 10s of widgets. At that scale, even a single line update starts to look pretty daunting.
+
+But, as you might imagine, there's a happy ending to this story. Components to the rescue! Remember my hyperimage component from earlier in the talk. Well every image is being loaded via that component. And that singular component lives in a single repo that gets deployed to all our clients. I just update that one component with the focal point update and every image and every site gains the new functionality. It really becomes a single line update.
+
+And that's at the small scale. Remember, there are whole widgets and apps in our component library as well. If a client is using one of our core components on their site and we find that that component is underperforming, has a bug, be more accessible, or whatever, then we can just update it in one place and every client gets. Sometimes client request features of us, if they have a good idea (and they often do) then we upgrade one of our components with the requested feature and not only does the original client get it, but so do the rest of our clients.
+
+It's a total revolution in the way we think about and build websites. And it all started with me making a link component.
 
 ## Closing
 
