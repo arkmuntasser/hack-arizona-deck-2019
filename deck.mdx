@@ -11,17 +11,21 @@ export { swiss as theme } from 'mdx-deck/themes'
 
 ---
 
-# Simpleview
+SaaSy Components
+
+---
+
+Simpleview
 We build websites
 
 ---
 
-# 54
+54
 websites built and launched in 2018
 
 ---
 
-# Simpleview Component Library
+Simpleview Component Library
 
 ---
 
@@ -47,9 +51,7 @@ Goals for our Component Library
 
 ---
 
-Tightly integrateed with our CMS.
-
-Our CMS is a closed-source proprietary product.
+## Writing Better Code Made Easy
 
 ---
 
@@ -57,7 +59,7 @@ Code examples are NOT production ready.
 
 ---
 
-# Links
+### Links
 
 ---
 
@@ -123,14 +125,153 @@ Components can and should be used to enforce best practices/accessibility.
 
 ---
 
-## Edit this file
-
-To create your presentation
-
-```notes
-- Create speaker notes in fenced code blocks
-```
+### Images
 
 ---
 
-<https://github.com/jxnblk/mdx-deck>
+<ul>
+  <Appear>
+    <li>No lazy-loading standard</li>
+    <li>Didn't take advantage of picture tag to provide responsive images</li>
+  </Appear>
+</ul>
+
+---
+
+#### Lazy-loading
+
+---
+
+<CodeSurfer
+  title="hyperimage component"
+  code={require("!raw-loader!./snippets/hyperimage-lazy-loading.vue")}
+  lang="html"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    {},
+    { range: [13, 14], notes: "On mounted, we setup an Intersection Observer" },
+    { range: [17, 20], notes: "If the element is in the viewport, we flip the enteredViewport flag to true." },
+    { lines: [2], notes: "When enteredViewport is true, we render the image." }
+  ]}
+/>
+
+---
+
+#### Responsive Images
+
+---
+
+<CodeSurfer
+  title="hyperimage component"
+  code={require("!raw-loader!./snippets/hyperimage-responsive.vue")}
+  lang="html"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    {},
+    { range: [3, 6], notes: "We iterate over an array of sizes and set the sources" },
+    { notes: "No more double checking MDN for how to use picture" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Devs now write this..."
+  code={require("!raw-loader!./snippets/image-example-good.html")}
+  lang="html"
+  showNumbers={false}
+  dark={false}
+/>
+
+---
+
+Awesome! Super helpful components!
+
+---
+
+But now what?
+
+---
+
+## A Saas Frontend to match our SaaS Backend
+
+---
+
+### Simpleview CMS
+It's a SaaS (Software as a Service) platform!
+
+---
+
+#### The Focal Point Debacle
+
+---
+
+Focal point enabled the user to select the focus on an image so that cropping applied to the image would center around the focus.
+
+---
+
+Every client got it instantly and it was a totally smooth release...
+
+---
+
+...is what I would like to say
+
+---
+
+It required a very minor single line update to enable on the frontend
+
+---
+
+<Appear>
+  <span>1 Line...&nbsp;</span>
+  <span>per Widget...&nbsp;</span>
+  <span>per Client...</span>
+</Appear>
+
+---
+
+Roughly a dozen widget per sites...
+
+---
+
+And a few hundred clients...
+
+---
+
+Never again!
+
+---
+
+The hymperimage component to the rescue!
+
+---
+
+Components in our library live outside of the client's codebase and will get pushed to their sites.
+
+---
+
+Update the component once, and everyone gets it
+
+---
+
+It doesn't stop there!
+
+---
+
+Our component library contains these foundational components, as well as widgets, and apps.
+
+---
+
+Clients can now get regular frontend updates along with regular backend updates.
+
+---
+
+A component library at scale.
+
+---
+
+## Thank you!
+
+Follow me: @arkmuntasser on Twitter and other internet places
