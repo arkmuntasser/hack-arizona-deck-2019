@@ -38,13 +38,13 @@ export default ({ children }) => (
             style={{display: 'flex',alignItems: 'center'}}
         >
             <a style={{textDecoration: 'none', color: '#EC407A', marginRight: '24px',display: 'flex',alignItems: 'center'}} href="https://twitter.com/arkmuntasser" target="_blank">
-                <img src='https://github.com/arkmuntasser/hack-arizona-deck-2019/blob/master/assets/logo-twitter.png?raw=true' width="36" />&nbsp;@arkmuntasser
+                <img src={require("file-loader!../assets/logo-twitter.png")} width="36" />&nbsp;@arkmuntasser
             </a>
             <a style={{textDecoration: 'none', color: '#EC407A',marginRight: '24px',display: 'flex',alignItems: 'center'}} href="https://github.com/arkmuntasser" target="_blank">
-                <img src='https://github.com/arkmuntasser/hack-arizona-deck-2019/blob/master/assets/logo-github.png?raw=true' width="36" />&nbsp;@arkmuntasser
+                <img src={require("file-loader!../assets/logo-github.png")} width="36" />&nbsp;@arkmuntasser
             </a>
             <a style={{textDecoration: 'none', color: '#EC407A',marginRight: '24px',display: 'flex',alignItems: 'center'}} href="https://arkm.xyz" target="_blank">
-                <img src='https://github.com/arkmuntasser/hack-arizona-deck-2019/blob/master/assets/logo-website.jpg?raw=true' width="36" />&nbsp;arkm.xyz
+                <img src={require("file-loader!../assets/logo-website.jpg")} width="36" />&nbsp;arkm.xyz
             </a>
         </span>
     </span>
