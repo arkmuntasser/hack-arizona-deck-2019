@@ -11,7 +11,7 @@ export default {
 		}
 	},
 	mounted() {
-		const io = new InstersectionObserver((entries, i) => {
+		const io = new IntersectionObserver((entries, i) => {
 			const entry = entries[0];
 
 			if (entry.intersectionRatio > 0) {
